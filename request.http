@@ -5,11 +5,22 @@ GET http://localhost:3000/league.json
 GET http://localhost:3000/league/21.json
 
 ###
-GET http://localhost:3000/league.json
-Contest-type: application/json
+POST http://localhost:3000/league.json
+Content-type: application/json
 
 {
-  "name": "Jak'Sho",
+  "champion": "Jak'Sho",
+  "origin": "Mythic",
+  "picture": "https://pbs.twimg.com/media/FhyscoGWYAErGea.png",
+  "power_level": "50"
+}
+
+###
+PATCH http://localhost:3000/league/2.json
+Content-type: application/json
+
+{
+  "champion": "Jak'Sho",
   "origin": "Mythic",
   "picture": "https://pbs.twimg.com/media/FhyscoGWYAErGea.png",
   "power_level": "50"

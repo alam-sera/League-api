@@ -12,12 +12,26 @@ class LeagueController < ApplicationController
 
   def create 
     league = League.new(
-      name: params[:name],
+      champion: params[:champion],
       origin: params[:origin],
       power_level: params[:power_level],
       picture: params[:picture]
-    )
-    League.save
+    ).save
   end
   
+  def update 
+    league = League.find(params[:id])
+    league.champion = params[:champion]
+    league.origin = params[:origin]
+    league.power_level = params[:power_level]
+    league.picture = params[:picture]
+    league.save
+    render json: league.as_json
+  end 
+
+  def delete
+    league = League.find(params[:id])
+    league.destroy 
+    render json: {message: "Succesfully destroyed"}
+  end
 end
